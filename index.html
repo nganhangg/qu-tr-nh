@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 năm đã trải qua</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: sans-serif; background: linear-gradient(to bottom, #0f172a, #312e81); color: white; }
+    .container { max-width: 1200px; margin: auto; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    section { background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 1rem; }
+    h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    textarea { width: 100%; min-height: 50px; margin-bottom: 0.5rem; border-radius: 0.5rem; padding: 0.5rem; border: none; outline: none; resize: none; background: rgba(2,132,199,0.2); color: #0369a1; }
+    textarea::placeholder { color: #60a5fa; }
+    @media(max-width:768px){.container{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+  <header style="text-align:center; margin-bottom:2rem;">
+    <h1 style="font-size:2rem; font-weight:bold;">3 năm đã trải qua những chuyện gì</h1>
+    <h3> tui mong rằng bạn không vì quá ích kỷ mà lại bỏ đi tụi tui, không vì những suy nghĩ chưa kỷ của bạn mà lại làm chết đi thêm nhiều trái tim</h3>
+  </header>
+
+  <div class="container">
+    <!-- Vui -->
+    <section>
+      <h2>
+        <b> Những điều vui vẻ </b>
+      </h2>
+      <div id="joyful"></div>
+    </section>
+
+    <!-- Buồn -->
+    <section>
+      <h2>
+       <b> Những điều buồn nhất </b> </h2>
+      <div id="sad"></div>
+    </section>
+  </div>
+
+  <script>
+    // Nội dung sẵn
+    const joyfulTexts = [
+      "lần đầu tiên nói chuyện với bạn, bạn rất là vui, dễ thương chỉ bài cho mấy tui rất rất nhiều",
+      "Vào đêm văn nghệ lớp 10 bạn đưa tui về, tui rất cảm kích",
+      "năm lớp 10 bạn và mấy bạn kia tổ chức sinh nhật cho tui, còn có cả quà nữa",
+      "năm lớp 10 bạn luôn tâm sự với tui, nhắn tin rep trong 3s",
+      "là những lúc tui giận bạn, bạn luôn tìm cách xin lỗi",
+      "là những lúc tui cảm ơn vì bạn đã chọn tụi tui mà chơi",
+      "hè năm 11 là những lúc tui gặp biến cố bạn luôn là người lắng nghe nhiều nhất",
+      "là cái hôm bạn mua đt xong bạn nói với tui",
+      "là những lần bạn luôn động viên tui khi tui kh còn ai cả",
+      "là cái hôm đi nuôi nội bệnh ngay sinh nhật bạn tui cảm thấy có lỗi khi không tặng quà sn được",
+      "là cái lần bạn leo gank liên quân cho tui",
+      "là cái lần nhậo học bạn đi sớm giữ chổ mặc dù nhà xa",
+      "những lần bạn an ủi tui khi tui khóc vì nhớ bạn của tui",
+      "cái hôm tui gặp đầy đủ biến cố trong đời bạn luôn an ủi tui đủ thứ",
+      "là những hôm bạn đưa tui về để tránh tụi kia",
+      "là những lần bạn là ng mà tui trúc hết những thứ khó chịu trên cuộc đời",
+      "là một số lần bạn chỉ bài tui",
+      "là cái lần bạn đặt món quà sn muộn",
+      "năm 11 đáng giá lắm, đáng giá vì lúc đó tui mới thật sự quý bạn",
+      "tui kh biết cảm ơn những chuyện bạn làm thế nào cho hết",
+      "hè 12 là những lần liên lạc ít nhất",
+      "cảm ơn vì bịch bánh năm lớp 10 bạn tặng tui",
+      "cảm ơn vì cây kem và ổ bánh mì năm lớp 12 bạn tặng tui",
+      "năm 12 cũng là những lần bạn luôn lắng nghe tâm sự",
+      "là những lần bạn bị chính nhóm chơi chung nói xấu tui lại là đứa đứng ra nói",
+      "là rất ít lần bạn chỉ bài cho tui",
+      "là cái lần bạn chọn chơi với tui thay vì con bích duyên",
+      "là cái lần bạn chịu ngồi chung với tui",
+      "là cái lần bạn đưa tui về buổi tối",
+      "là những lần bạn đưa tui đi học về trong 3 năm cấp 3",
+      "là cái lần bạn đưa cho tui mượn cái áo mưa",
+      "là cái lần bạn đưa tui qua chổ gửi xe"
+    ];
+
+    const sadTexts = [
+      "buồn nhất là chính hôm qua bạn nói với cô: tụi mình không hợp từ cả quá trình chứ không phải năm nay, kh biết bạn có nghĩ rằng tui còn nghĩ mọi thứ là tại tui không",
+      "buồn vì bạn xem nhẹ chuyện bạn bè, bạn làm cho tụi tui tổn thương rất nhiều",
+      "buồn vì không biết sao mà tui không hợp với bạn",
+      "buồn vì bạn luôn nghĩ cho bạn chứ chưa bao giờ nghĩ cho tụi tui trong khi tụi tui luôn nghĩ cho bạn" ,
+      "buồn vì bạn quá thờ ơ",
+      "buổn vì lúc mà bạn cọc với mấy tui thì bạn lại vui với nhóm khác",
+      "buồn vì bạn luôn không thấy được sự hi sinh của tụi tui",
+      "buồn vì hôm qua cô nói với tui rất nhiều, cô nói là bạn nói cho cô đủ thứ",
+      "buồn vì bạn là người tui quý nhất trong nhóm mà bạn lại làm tui đau nhất ",
+      "buồn vì 3 năm trời, bạn chưa chủ động với giải bày với tụi tui một lần nào",
+      "buồn vì khi tụi tui đang cải thiện thì bạn lại rời đi",
+      "buồn vì bạn luôn thờ ơ vô cảm với mấy tui",
+      "buồn vì lúc bạn nhắn cho cô bạn nhận lỗi là do bạn, còn tụi tui thì bạn không nhắn gì",
+      "buồn vì tui ấm ức, tui tủi tới mức tui khóc ngay cả khi tờ giấy note đưa cho bạn, lúc đó cả thế giới tui sụp đổ rồi",
+      "buồn vì bạn đối xử với người khác không giống như đối xử với tụi tui",
+      "buồn vì những lần bạn cọc cằn không rõ lí do với tụi tui nữa",
+      "cuối cùng, kh chỉ buồn mà là đau nhất, không biết rằng bạn có nghĩ rằng khi bạn quyết định một cái gì đó bạn có biết tụi tui đã buồn đến mức nào không, bạn luôn suy nghĩ cho ên mình thôi ! "
+    ];
+
+    const joyfulContainer = document.getElementById('joyful');
+    const sadContainer = document.getElementById('sad');
+
+    joyfulTexts.forEach(text=>{
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      joyfulContainer.appendChild(ta);
+    });
+
+    sadTexts.forEach(text=>{
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      sadContainer.appendChild(ta);
+    });
+  </script>
+
+</body>
+</html>
